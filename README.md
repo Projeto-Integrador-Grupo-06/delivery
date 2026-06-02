@@ -313,4 +313,4 @@ Projeto desenvolvido para fins educacionais durante o Bootcamp Java Full Stack d
 
 # 🔗 Repositório
 
-Link do repositório será adicionado após a publicação do projeto.
+[Projeto Integrador Grupo 06](https://github.com/Projeto-Integrador-Grupo-06/delivery)
