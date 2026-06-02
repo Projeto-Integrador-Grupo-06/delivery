@@ -2,18 +2,21 @@ package com.generation.pi_delivery_alimentos.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@Table(name = "tb_Usuairios")
+@Table(name = "tb_Usuarios")
 public class Usuario {
 
 	@Id
@@ -43,7 +46,10 @@ public class Usuario {
 	@Size( max = 250, message = "Informe seu Endereço: ")
 	private String endereco;
 	
-	
+	//Relacionamento 
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("usuario")
+	private List<Produtos> produtos;
 	
 	
 	//GET E SET
@@ -94,6 +100,14 @@ public class Usuario {
 
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
+	}
+
+	public List<Produtos> getProdutos() {
+		return produtos;
+	}
+
+	public void setProdutos(List<Produtos> produtos) {
+		this.produtos = produtos;
 	}
 	
 
